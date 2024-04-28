@@ -6,8 +6,9 @@ import 'package:news_app_clean_architecture/features/daily_news/presentation/blo
 import 'package:news_app_clean_architecture/features/daily_news/presentation/pages/home/daily_news.dart';
 import 'package:news_app_clean_architecture/injection_container.dart';
 
-void main() {
-  initializeDependencies();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDependencies();
   runApp(const MyApp());
 }
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<RemoteArticlesBloc>(
       // create: (context)=>BlocProvider.of<RemoteArticlesBloc>(context)..add(GetArticles()),
-      create: (context)=>sl()..add(const GetArticles()),
+      create: (context) => sl()..add(const GetArticles()),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme(),
