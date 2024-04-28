@@ -56,3 +56,9 @@ flutter pub add flutter_bloc
 ```
 flutter pub add get_it
 ```
+
+# chached image
+
+```
+flutter pub add cached_network_image
+```
