@@ -62,3 +62,15 @@ flutter pub add get_it
 ```
 flutter pub add cached_network_image
 ```
+
+# icon
+
+```
+flutter pub add ionicons
+```
+
+# Hooks
+
+```
+flutter pub add flutter_hooks
+```
