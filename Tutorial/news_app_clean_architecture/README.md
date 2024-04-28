@@ -50,3 +50,9 @@ flutter pub run build_runner build
 ```
 flutter pub add flutter_bloc
 ```
+
+# service locator
+
+```
+flutter pub add get_it
+```
