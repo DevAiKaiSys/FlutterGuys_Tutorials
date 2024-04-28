@@ -44,3 +44,9 @@ abstract class NewsApiService {
 ```
 flutter pub run build_runner build
 ```
+
+# state management
+
+```
+flutter pub add flutter_bloc
+```
