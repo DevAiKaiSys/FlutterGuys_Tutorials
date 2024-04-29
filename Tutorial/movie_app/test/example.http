@@ -1,0 +1,10 @@
+# trending
+GET https://api.themoviedb.org/3/trending/movie/day?api_key=feefd9dfdbae7ed0a59490812ba90ad8 HTTP/1.1
+
+###
+# popular
+GET https://api.themoviedb.org/3/movie/popular?api_key=feefd9dfdbae7ed0a59490812ba90ad8 HTTP/1.1
+
+###
+# search
+GET https://api.themoviedb.org/3/search/movie?query=$tQuery&api_key=feefd9dfdbae7ed0a59490812ba90ad8 HTTP/1.1
