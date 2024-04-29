@@ -8,7 +8,26 @@ flutter pub add http
 
 ```
 flutter pub add dev:mockito
+dart pub add dev:build_runner
 ```
+
+## generate
+
+```
+// _test.dart
+import 'package:mockito/annotations.dart';
+// Annotation which generates the cat.mocks.dart library and the MockCat class.
+@GenerateNiceMocks([MockSpec<Cat>()])
+```
+
+```
+flutter pub run build_runner build
+# OR
+dart run build_runner build
+```
+
+## run test
+
 
 
 # Project Structure
