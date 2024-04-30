@@ -7,7 +7,7 @@ import 'package:movie_app/domain/entities/movie.dart';
 import 'package:movie_app/domain/repositories/movie_repository.dart';
 import 'package:movie_app/domain/usecases/get_popular_movies.dart';
 
-import 'get_trending_movies_test.mocks.dart';
+import 'get_popular_movies_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<MovieRepository>()])
 

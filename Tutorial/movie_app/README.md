@@ -32,6 +32,7 @@ dart run build_runner build
 
 # Project Structure
 
+```
 project_root/
 │
 ├── lib/
@@ -154,3 +155,4 @@ project_root/
 ├── assets/                            # Static assets (images, fonts, etc.)
 │
 └── pubspec.yaml                       # Flutter project dependencies and configurations
+```
