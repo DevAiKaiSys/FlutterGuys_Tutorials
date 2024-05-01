@@ -42,6 +42,24 @@ flutter test test/data/repositories/movie_repository_impl_test.dart
 flutter pub add dartz
 ```
 
+# state management
+
+```
+flutter pub add flutter_bloc
+```
+
+# comparing dart objects
+
+```
+flutter pub add equatable
+```
+
+# service locator
+
+```
+flutter pub add get_it
+```
+
 # Project Structure
 
 ```
