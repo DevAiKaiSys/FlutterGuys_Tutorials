@@ -8,10 +8,8 @@ import 'package:movie_app/data/datasources/remote/movie_remote_data_source_impl.
 
 import 'movie_remote_data_source_test.mocks.dart';
 
-
 @GenerateMocks([http.Client])
-
-void main(){
+void main() {
   late MovieRemoteDataSource dataSource;
   late MockClient mockHttpClient;
 
@@ -22,9 +20,12 @@ void main(){
 
   const tQuery = 'Avengers';
 
-  const tUrl = 'https://api.themoviedb.org/3/trending/movie/day?api_key=feefd9dfdbae7ed0a59490812ba90ad8';
-  const pUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=feefd9dfdbae7ed0a59490812ba90ad8';
-  const sUrl = 'https://api.themoviedb.org/3/search/movie?query=$tQuery&api_key=feefd9dfdbae7ed0a59490812ba90ad8';
+  const tUrl =
+      'https://api.themoviedb.org/3/trending/movie/day?api_key=feefd9dfdbae7ed0a59490812ba90ad8';
+  const pUrl =
+      'https://api.themoviedb.org/3/movie/popular?api_key=feefd9dfdbae7ed0a59490812ba90ad8';
+  const sUrl =
+      'https://api.themoviedb.org/3/search/movie?query=$tQuery&api_key=feefd9dfdbae7ed0a59490812ba90ad8';
 
   const String sampleApiResponse = '''
 {
@@ -53,12 +54,11 @@ void main(){
 }
 ''';
 
-
-
-  test('should perform a GET request on a url to get trending movies', () async {
+  test('should perform a GET request on a url to get trending movies',
+      () async {
     // arrange
-    when(mockHttpClient.get(Uri.parse(tUrl))).
-    thenAnswer((_) async => http.Response(sampleApiResponse, 200));
+    when(mockHttpClient.get(Uri.parse(tUrl)))
+        .thenAnswer((_) async => http.Response(sampleApiResponse, 200));
 
     // act
     await dataSource.getTrendingMovies();
@@ -69,8 +69,8 @@ void main(){
 
   test('should perform a GET request on a url to get popular movies', () async {
     // arrange
-    when(mockHttpClient.get(Uri.parse(pUrl))).
-    thenAnswer((_) async => http.Response(sampleApiResponse, 200));
+    when(mockHttpClient.get(Uri.parse(pUrl)))
+        .thenAnswer((_) async => http.Response(sampleApiResponse, 200));
 
     // act
     await dataSource.getPopularMovies();
@@ -81,8 +81,8 @@ void main(){
 
   test('should perform a GET request on a url to get search movies', () async {
     // arrange
-    when(mockHttpClient.get(Uri.parse(sUrl))).
-    thenAnswer((_) async => http.Response(sampleApiResponse, 200));
+    when(mockHttpClient.get(Uri.parse(sUrl)))
+        .thenAnswer((_) async => http.Response(sampleApiResponse, 200));
 
     // act
     await dataSource.searchMovies(tQuery);
@@ -91,10 +91,11 @@ void main(){
     verify(mockHttpClient.get(Uri.parse(sUrl)));
   });
 
-  test('should throw a ServerException when the response code is 404', () async {
+  test('should throw a ServerException when the response code is 404',
+      () async {
     // arrange
-    when(mockHttpClient.get(any)).
-    thenAnswer((_) async => http.Response('Something went wrong', 404));
+    when(mockHttpClient.get(any))
+        .thenAnswer((_) async => http.Response('Something went wrong', 404));
 
     // act
     final call = dataSource.getTrendingMovies;
@@ -102,6 +103,4 @@ void main(){
     // assert
     expect(() => call(), throwsA(isA<ServerException>()));
   });
-
-
 }
