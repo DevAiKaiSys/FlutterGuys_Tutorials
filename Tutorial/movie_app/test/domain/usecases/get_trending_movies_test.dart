@@ -1,8 +1,7 @@
-import 'dart:async';
-
+import 'package:dartz/dartz.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:movie_app/domain/entities/movie.dart';
 import 'package:movie_app/domain/repositories/movie_repository.dart';
 import 'package:movie_app/domain/usecases/get_trending_movies.dart';
@@ -10,7 +9,6 @@ import 'package:movie_app/domain/usecases/get_trending_movies.dart';
 import 'get_trending_movies_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<MovieRepository>()])
-
 void main() {
   late GetTrendingMovies usecase;
   late MockMovieRepository mockMovieRepository;
@@ -35,12 +33,15 @@ void main() {
 
   test('should get trending movies from the repository', () async {
     // arrange
+    // when(mockMovieRepository.getTrendingMovies())
+    //     .thenAnswer((_) async => tMoviesList);
     when(mockMovieRepository.getTrendingMovies())
-        .thenAnswer((_) async => tMoviesList);
+        .thenAnswer((_) async => Right(tMoviesList));
     // act
     final result = await usecase();
     // assert
-    expect(result, tMoviesList);
+    // expect(result, tMoviesList);
+    expect(result, equals(Right(tMoviesList)));
     verify(mockMovieRepository.getTrendingMovies());
     verifyNoMoreInteractions(mockMovieRepository);
   });

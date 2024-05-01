@@ -28,7 +28,19 @@ dart run build_runner build
 
 ## run test
 
+```
+flutter test
+or
+flutter test test/data/repositories/movie_repository_impl_test.dart
+```
 
+# Error Handling
+
+[dartz](https://pub.dev/packages/dartz/install)
+
+```
+flutter pub add dartz
+```
 
 # Project Structure
 
@@ -100,7 +112,7 @@ project_root/
 │   │   │   └── ...
 │   │   ├── widgets/                  # Reusable widgets
 │   │   ├── blocs/                    # BLoC classes for state management
-│   │   ├── utils/                
+│   │   ├── utils/
 │   │   │   ├── auth_helper.dart   # Authentication helper functions
 │   │   │   ├── format_helper.dart  # Formatting helper functions
 │   │   │   └── ...               # Other utility functions
